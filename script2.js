@@ -1,4 +1,8 @@
-function calculate() {
+var form = document.getElementById("calculator-form");
+
+form.addEventListener("submit", function(event) {
+  event.preventDefault();
+
   var num1 = Number(document.getElementById("num1").value);
   var num2 = Number(document.getElementById("num2").value);
   var operator = document.getElementById("operator").value;
@@ -23,4 +27,4 @@ function calculate() {
   }
 
   document.getElementById("result").innerHTML = "Result: " + result;
-}
+});
