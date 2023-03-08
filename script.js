@@ -4,6 +4,7 @@ function login() {
 
 	if (username === "admin" && password === "password") {
 		window.location.href = "home.html";
+		href="home.html"
 	} else {
 		alert("Invalid login credentials. Please try again.");
 	}
