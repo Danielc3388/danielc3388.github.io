@@ -1,3 +1,4 @@
+
 var form = document.getElementById("calculator-form");
 
 form.addEventListener("submit", function(event) {
