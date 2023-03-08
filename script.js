@@ -43,13 +43,15 @@ form.addEventListener("submit", function(event) {
   calculate();
 });
 
-var input = document.getElementById('result');
+
 
 function insert(value) {
+	var input = document.getElementById('result');
 	input.value += value;
 }
 
 function calculate() {
+	var input = document.getElementById('result');
 	try {
 		var result = eval(input.value);
 		if (isNaN(result)) {
@@ -63,5 +65,6 @@ function calculate() {
 }
 
 function clearInput() {
+	var input = document.getElementById('result');
 	input.value = '';
 }
