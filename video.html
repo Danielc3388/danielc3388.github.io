@@ -1,20 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Video Player</title>
+<html>
+  <head>
+    <title>My Video Player</title>
+  </head>
+  <body>
+    <video id="my-video" controls></video>
     <script>
-        window.onload = function () {
-            const videoPlayer = document.getElementById("videoPlayer");
-            const videoUrl = "https://raw.githubusercontent.com/Danielc3388/danielc3388.github.io/main/(failed)IMG_1551.MOV";
-            videoPlayer.setAttribute("src", videoUrl);
-        };
+      // Set up the video player
+      var video = document.getElementById("my-video");
+      var src = "https://raw.githubusercontent.com/Danielc3388/danielc3388.github.io/main/(failed)IMG_1551.MOV";
+      video.src = src;
+      video.addEventListener("contextmenu", function(e) { e.preventDefault(); }, false); //Disable right click context menu
+      video.addEventListener("keydown", function(e) { e.preventDefault(); }, false); //Disable keyboard shortcuts
+      
+      // Add tokenization to the video URL
+      var token = "my-secret-token";
+      var tokenizedSrc = src + "?token=" + token;
+      
+      // Implement server-side authentication and authorization to restrict access to the video file
+      if (userIsAuthenticated()) {
+        video.src = tokenizedSrc;
+      } else {
+        video.style.display = "none";
+        alert("You are not authorized to view this video.");
+      }
     </script>
-</head>
-<body>
-    <video id="videoPlayer" controls>
-        Your browser does not support the video tag.
-    </video>
-</body>
+  </body>
 </html>
